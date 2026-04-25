@@ -1,6 +1,13 @@
 "use strict";
 
-// Mobile Menu
+/* =========================
+   CONFIG
+========================= */
+const API_URL = "https://portfolio-backend-hd55.onrender.com/api/contact";
+
+/* =========================
+   MOBILE MENU
+========================= */
 const menuBtn = document.getElementById("menu-btn");
 const navMenu = document.getElementById("nav-menu");
 
@@ -19,8 +26,9 @@ if (menuBtn && navMenu) {
   });
 }
 
-
-// Resume Preview
+/* =========================
+   RESUME MODAL
+========================= */
 const previewResumeBtn = document.getElementById("previewResumeBtn");
 
 if (previewResumeBtn) {
@@ -46,7 +54,9 @@ if (previewResumeBtn) {
   });
 }
 
-// Scroll Reveal
+/* =========================
+   SCROLL REVEAL
+========================= */
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -63,7 +73,9 @@ document.querySelectorAll("section, .card").forEach((el) => {
   observer.observe(el);
 });
 
-//  Nav Highlight
+/* =========================
+   NAV ACTIVE STATE
+========================= */
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("#nav-menu a");
 
@@ -86,19 +98,9 @@ window.addEventListener("scroll", () => {
   });
 });
 
-
-// Project Filtering 
-function filterProjects(type) {
-  document.querySelectorAll(".project-card").forEach((p) => {
-    const match = type === "all" || p.dataset.type === type;
-    p.style.display = match ? "block" : "none";
-  });
-}
-
-window.filterProjects = filterProjects;
-
-
-// Cursor Glow Effect
+/* =========================
+   CURSOR GLOW
+========================= */
 let lastMove = 0;
 
 document.addEventListener("mousemove", (e) => {
@@ -117,16 +119,18 @@ document.addEventListener("mousemove", (e) => {
   setTimeout(() => glow.remove(), 300);
 });
 
-
-// Device Optimization
+/* =========================
+   DEVICE CHECK
+========================= */
 const isLowEndDevice = navigator.hardwareConcurrency <= 4;
 
 if (isLowEndDevice) {
   document.body.classList.add("low-performance");
 }
 
-
-// Toast System
+/* =========================
+   TOAST SYSTEM
+========================= */
 function showToast(message, type = "success") {
   const toast = document.getElementById("toast");
   const toastMessage = document.getElementById("toastMessage");
@@ -138,17 +142,14 @@ function showToast(message, type = "success") {
   toast.classList.remove("hide", "success", "error");
   toast.classList.add(type);
 
-  setTimeout(() => {
-    toast.classList.remove("hide");
-  }, 10);
+  setTimeout(() => toast.classList.remove("hide"), 10);
 
-  setTimeout(() => {
-    toast.classList.add("hide");
-  }, 3000);
+  setTimeout(() => toast.classList.add("hide"), 3000);
 }
 
-
-// Contact Form (MAIN FIX AREA)
+/* =========================
+   CONTACT FORM (FINAL FIXED VERSION)
+========================= */
 const contactForm = document.getElementById("contactForm");
 const submitBtn = document.getElementById("submitBtn");
 
@@ -159,7 +160,6 @@ if (contactForm && submitBtn) {
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
-    const company = document.querySelector('input[name="company"]').value.trim();
 
     if (!name || !email || !message) {
       showToast("Please fill all fields ⚠️", "error");
@@ -170,10 +170,12 @@ if (contactForm && submitBtn) {
     submitBtn.textContent = "Sending...";
 
     try {
-      const res = await fetch("https://your-backend.onrender.com/api/contact", {
+      const res = await fetch(API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message, company }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, message })
       });
 
       const data = await res.json();
@@ -183,11 +185,10 @@ if (contactForm && submitBtn) {
         contactForm.reset();
       } else {
         showToast(data.message || "Failed to send message ❌", "error");
-        console.log("API Error:", data.message);
       }
     } catch (err) {
+      console.log(err);
       showToast("Server error ⚠️", "error");
-      console.log("Fetch Error:", err);
     }
 
     submitBtn.disabled = false;
@@ -195,7 +196,9 @@ if (contactForm && submitBtn) {
   });
 }
 
-// Boot Screen
+/* =========================
+   BOOT SCREEN
+========================= */
 window.addEventListener("load", () => {
   const boot = document.getElementById("bootScreen");
 
@@ -204,18 +207,7 @@ window.addEventListener("load", () => {
       boot.style.opacity = "0";
       boot.style.transition = "0.6s ease";
 
-      setTimeout(() => {
-        boot.remove();
-      }, 600);
+      setTimeout(() => boot.remove(), 600);
     }
   }, 1500);
 });
-
-// FIXED submitBtn
-if (submitBtn) {
-  submitBtn.disabled = true;
-
-  setTimeout(() => {
-    submitBtn.disabled = false;
-  }, 5000);
-}
