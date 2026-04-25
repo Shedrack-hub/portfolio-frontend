@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shédräçk Läbs — Basil Kelechi Shedrack</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/output.css">
+  <script src="./script.js" defer></script>
+  <meta name="description" content="Basil Kelechi Shedrack's portfolio — Frontend Development and Cybersecurity.">
+</head>
+
+<body class="bg-[#05060a] text-white font-[Poppins] scroll-smooth overflow-x-hidden">
+
+<!-- Boot Screen -->
+   <div id="bootScreen" class="fixed inset-0 bg-black z-[9999] flex items-center justify-center text-cyan-300 font-mono">
+  <div class="text-center">
+    <p class="text-sm">Initializing Shédräçk Labs...</p>
+    <p class="mt-2 text-xs text-gray-500">Loading systems / security modules / UI engine</p>
+    <p class="mt-6 animate-pulse">[ OK ] Boot complete</p>
+  </div>
+</div>
+  
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 bg-[#06070a]/90 backdrop-blur-md border-b border-cyan-400/6">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="text-cyan-400">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M6 12h12M12 6v12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <span class="text-lg md:text-xl font-semibold text-cyan-400 glow">Shédräçk Läbs</span>
+      </a>
+
+      <nav id="nav-menu" class="hidden md:flex items-center gap-6 text-sm text-gray-300" aria-label="Primary navigation">
+        <a href="#home" class="hover:text-cyan-300 transition">Home</a>
+        <a href="#about" class="hover:text-cyan-300 transition">About</a>
+        <a href="#skills" class="hover:text-cyan-300 transition">Skills</a>
+        <a href="#projects" class="hover:text-cyan-300 transition">Projects</a>
+        <a href="#resume" class="hover:text-cyan-300 transition">Resume</a>
+        <a href="#contact" class="hover:text-cyan-300 transition">Contact</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-cyan-400 text-2xl" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Hero Section -->
+<main id="home" class="min-h-screen flex items-center relative overflow-hidden">
+
+  <!-- background glow -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/10 blur-[130px] rounded-full"></div>
+    <div class="absolute bottom-[-150px] right-0 w-[500px] h-[500px] bg-blue-500/10 blur-[130px] rounded-full"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+
+    <!--Side Text  -->
+    <div>
+
+      <!-- badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/5 border border-cyan-400/20 text-cyan-300 text-xs">
+        Frontend Developer • Cybersecurity Enthusiast • Security Labs Builder
+      </div>
+
+      <!-- headline -->
+      <h1 class="mt-6 text-5xl md:text-6xl font-extrabold leading-tight">
+        Building <span class="text-cyan-400">Secure</span>,
+        <span class="text-blue-400">Modern</span> Web Experiences
+      </h1>
+
+      <!-- description -->
+      <p class="mt-6 text-gray-400 max-w-xl leading-relaxed">
+        I design fast, responsive frontend systems and explore cybersecurity through hands-on labs, network tools, and secure architecture practices.
+      </p>
+
+      <!-- CTA -->
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#projects"
+           class="px-6 py-3 rounded-xl bg-cyan-400 text-black font-semibold hover:scale-105 transition">
+          View Projects
+        </a>
+
+        <a href="resume.pdf"
+           class="px-6 py-3 rounded-xl border border-cyan-400 text-cyan-300 hover:bg-cyan-400 hover:text-black transition">
+          Download CV
+        </a>
+      </div>
+
+      <!-- mini stats -->
+      <div class="mt-10 grid grid-cols-3 gap-4">
+
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center hover:border-cyan-400/40 transition">
+          <div class="text-cyan-300 font-bold text-xl">10+</div>
+          <div class="text-xs text-gray-400">Projects</div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center hover:border-cyan-400/40 transition">
+          <div class="text-cyan-300 font-bold text-xl">Frontend</div>
+          <div class="text-xs text-gray-400">Focus</div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center hover:border-cyan-400/40 transition">
+          <div class="text-cyan-300 font-bold text-xl">Security</div>
+          <div class="text-xs text-gray-400">Labs</div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Image Side -->
+    <div class="flex justify-center md:justify-end">
+
+      <div class="relative">
+
+        <!-- glow ring -->
+        <div class="absolute inset-0 bg-cyan-400/20 blur-3xl rounded-full"></div>
+
+        <div class="relative w-80 h-80 rounded-2xl overflow-hidden border border-cyan-400/20 shadow-2xl">
+          <img src="./images/profile.png"
+               class="w-full h-full object-cover" />
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<hr class="fancy-hr" />
+
+
+<!-- About  -->
+<section id="about" class="py-20 relative">
+
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-cyan-300">About Me</h2>
+      <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
+        Builder mindset. Security-first thinking. Performance-driven frontend engineering.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+
+      <!-- Main Story -->
+      <div class="lg:col-span-2 space-y-6">
+
+        <!-- founder card -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+          <h3 class="text-cyan-300 font-semibold text-lg">Who I Am</h3>
+
+          <p class="mt-4 text-gray-300 leading-relaxed">
+            I’m <strong>Basil Kelechi Shedrack</strong>, a front-end developer and cybersecurity enthusiast
+            building under the identity <span class="text-cyan-300">Shédräçk Labs</span>.
+            I focus on creating fast, secure, and scalable web systems while actively exploring
+            real-world security practices through labs and tooling.
+          </p>
+
+          <p class="mt-4 text-gray-300 leading-relaxed">
+            My approach is simple: <span class="text-cyan-300">build → test → break → secure → improve</span>.
+            I don’t just design interfaces — I think about how they behave under pressure.
+          </p>
+        </div>
+
+        <!-- mindset card -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+
+          <h3 class="text-cyan-300 font-semibold text-lg">Mindset</h3>
+
+          <div class="mt-4 grid md:grid-cols-2 gap-4 text-sm text-gray-300">
+
+            <div class="p-4 rounded-xl bg-black/20 border border-white/5">
+              ⚡ Performance-first UI design
+            </div>
+
+            <div class="p-4 rounded-xl bg-black/20 border border-white/5">
+              🔐 Security-aware development
+            </div>
+
+            <div class="p-4 rounded-xl bg-black/20 border border-white/5">
+              🧠 Continuous learning loop
+            </div>
+
+            <div class="p-4 rounded-xl bg-black/20 border border-white/5">
+              🛠️ Build real-world systems
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="space-y-6">
+
+        <!-- quick profile -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+
+          <h3 class="text-gray-300 text-sm">Quick Profile</h3>
+
+          <div class="mt-4 space-y-2 text-sm text-gray-200">
+            <p><strong>Role:</strong> Frontend Developer</p>
+            <p><strong>Focus:</strong> Cybersecurity + UI Systems</p>
+            <p><strong>Location:</strong> Nigeria</p>
+            <p><strong>Status:</strong> Open to freelance</p>
+          </div>
+
+        </div>
+
+        <!-- learning stack -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+
+          <h3 class="text-gray-300 text-sm">Currently Learning</h3>
+
+          <div class="mt-4 space-y-2 text-sm text-gray-300">
+            <p>• Network Security</p>
+            <p>• Penetration Testing</p>
+            <p>• Secure Web Architecture</p>
+            <p>• Advanced JavaScript Systems</p>
+          </div>
+
+        </div>
+
+        <!-- quote -->
+        <div class="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 rounded-2xl p-6">
+
+          <p class="text-sm text-gray-300 italic">
+            “I don’t just build websites — I build systems that can survive real-world pressure.”
+          </p>
+
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<hr class="fancy-hr" />
+
+<!-- Skills  -->
+<section id="skills" class="py-20 relative">
+
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- HEADER -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-cyan-300">Skills & Systems</h2>
+      <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
+        A breakdown of my current technical stack and evolving cybersecurity + development skillset.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Frontend -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+
+        <h3 class="text-cyan-300 font-semibold mb-6">Frontend Engineering</h3>
+
+        <div class="space-y-5 text-sm">
+
+          <div>
+            <div class="flex justify-between text-gray-300 mb-2">
+              <span>HTML & Accessibility</span><span>95%</span>
+            </div>
+            <div class="h-2 bg-black/40 rounded-full">
+              <div class="h-full w-[95%] bg-cyan-400 rounded-full"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-gray-300 mb-2">
+              <span>Tailwind CSS / UI Systems</span><span>90%</span>
+            </div>
+            <div class="h-2 bg-black/40 rounded-full">
+              <div class="h-full w-[90%] bg-cyan-400 rounded-full"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-gray-300 mb-2">
+              <span>JavaScript (ES6+)</span><span>85%</span>
+            </div>
+            <div class="h-2 bg-black/40 rounded-full">
+              <div class="h-full w-[85%] bg-cyan-400 rounded-full"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-gray-300 mb-2">
+              <span>React (Component Systems)</span><span>75%</span>
+            </div>
+            <div class="h-2 bg-black/40 rounded-full">
+              <div class="h-full w-[75%] bg-cyan-400 rounded-full"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Security -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+
+        <h3 class="text-cyan-300 font-semibold mb-6">Cybersecurity & Systems</h3>
+
+        <div class="space-y-5 text-sm">
+
+          <div>
+            <div class="flex justify-between text-gray-300 mb-2">
+              <span>OWASP / Secure Coding</span><span>80%</span>
+            </div>
+            <div class="h-2 bg-black/40 rounded-full">
+              <div class="h-full w-[80%] bg-cyan-400 rounded-full"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-gray-300 mb-2">
+              <span>Networking Basics</span><span>70%</span>
+            </div>
+            <div class="h-2 bg-black/40 rounded-full">
+              <div class="h-full w-[70%] bg-cyan-400 rounded-full"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-gray-300 mb-2">
+              <span>Penetration Testing (Labs)</span><span>70%</span>
+            </div>
+            <div class="h-2 bg-black/40 rounded-full">
+              <div class="h-full w-[70%] bg-cyan-400 rounded-full"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-gray-300 mb-2">
+              <span>Linux & Security Tools</span><span>65%</span>
+            </div>
+            <div class="h-2 bg-black/40 rounded-full">
+              <div class="h-full w-[65%] bg-cyan-400 rounded-full"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PYTHON  -->
+      <div class="md:col-span-2 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 rounded-2xl p-6 hover:border-cyan-400/40 transition">
+
+        <h3 class="text-cyan-300 font-semibold mb-6">Python Development (Learning Phase)</h3>
+
+        <div class="grid md:grid-cols-3 gap-4 text-sm">
+
+          <div class="p-4 bg-black/20 border border-white/10 rounded-xl">
+            <p class="text-gray-300">🐍 Core Python Syntax</p>
+            <p class="text-cyan-300 font-bold mt-2">60%</p>
+          </div>
+
+          <div class="p-4 bg-black/20 border border-white/10 rounded-xl">
+            <p class="text-gray-300">🔐 Security Scripts</p>
+            <p class="text-cyan-300 font-bold mt-2">45%</p>
+          </div>
+
+          <div class="p-4 bg-black/20 border border-white/10 rounded-xl">
+            <p class="text-gray-300">🌐 Automation / Tools</p>
+            <p class="text-cyan-300 font-bold mt-2">50%</p>
+          </div>
+
+        </div>
+
+        <p class="text-xs text-gray-400 mt-4">
+          Focus: automation tools, simple scanners, backend scripting, and cybersecurity utilities.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<hr class="fancy-hr" />
+
+<!-- Project -->
+<section id="projects" class="py-20 relative bg-[#07080b]">
+
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- HEADER -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-cyan-300">Projects & Systems</h2>
+      <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
+        Real-world builds combining frontend engineering, cybersecurity awareness, and system design thinking.
+      </p>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- PROJECT 1 -->
+      <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-400/40 transition">
+
+        <div class="overflow-hidden">
+          <img src="./images/project1.png"
+               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500">
+        </div>
+
+        <div class="p-5">
+          <h3 class="text-cyan-300 font-semibold">Portfolio System</h3>
+
+          <p class="text-sm text-gray-400 mt-2">
+            Personal developer portfolio built with modern UI principles and responsive design.
+          </p>
+
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">HTML</span>
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Tailwind</span>
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">UI Design</span>
+          </div>
+
+          <div class="mt-5 text-xs text-gray-500">
+            Type: Frontend System
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-400/40 transition">
+
+        <div class="overflow-hidden">
+          <img src="./images/project2.png"
+               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500">
+        </div>
+
+        <div class="p-5">
+          <h3 class="text-cyan-300 font-semibold">Sovchi Technology Platform</h3>
+
+          <p class="text-sm text-gray-400 mt-2">
+            Business website for hardware installation services with modern UI and deployment readiness.
+          </p>
+
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Business UI</span>
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Responsive</span>
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Deployment</span>
+          </div>
+
+          <div class="mt-5 text-xs text-gray-500">
+            Type: SaaS Business Site
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROJECT 3  -->
+      <div class="group bg-white/5 border border-cyan-400/20 rounded-2xl overflow-hidden hover:border-cyan-400/50 transition">
+
+        <div class="overflow-hidden relative">
+          <img src="./images/project3.png"
+               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500">
+
+          
+        </div>
+
+        <div class="p-5">
+          <h3 class="text-cyan-300 font-semibold">Network Scanner</h3>
+
+          <p class="text-sm text-gray-400 mt-2">
+            Lightweight network reconnaissance tool for discovering devices, ports, and services.
+          </p>
+
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Python</span>
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Networking</span>
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Security</span>
+          </div>
+
+          <div class="mt-5 text-xs text-gray-500">
+            Type: Cybersecurity Tool
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-400/40 transition">
+
+        <div class="overflow-hidden">
+          <img src="./images/project4.png"
+               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500">
+        </div>
+
+        <div class="p-5">
+          <h3 class="text-cyan-300 font-semibold">Shedrack-Labs-Password-Guardian</h3>
+
+          <p class="text-sm text-gray-400 mt-2">
+            A secure password management tool that helps users generate and manage strong passwords with a focus on cybersecurity best practices.
+          </p>
+
+          <div class="mt-4 flex flex-wrap gap-2 text-xs">
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Dashboard UI</span>
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Security System</span>
+            <span class="px-2 py-1 bg-black/30 border border-white/10 rounded">Cybersecurity</span>
+          </div>
+
+          <div class="mt-5 text-xs text-gray-500">
+            Type: Cybersecurity Tool
+          </div>
+        </div>
+
+      </div>
+
+ 
+
+    </div>
+
+    <div class="mt-14 text-center bg-white/5 border border-white/10 rounded-2xl p-8">
+  <h3 class="text-cyan-300 text-lg font-semibold">
+    Explore More Builds
+  </h3>
+
+  <p class="text-gray-400 text-sm mt-2">
+    Additional experiments, tools, and cybersecurity labs are available on GitHub.
+  </p>
+
+  <a href="https://github.com/Shedrack-hub"
+     target="_blank"
+     class="inline-block mt-5 px-6 py-3 bg-cyan-400 text-black rounded-lg font-semibold hover:scale-105 transition">
+    View GitHub Repository →
+  </a>
+</div>
+
+  </div>
+</section>
+
+<hr class="fancy-hr" />
+
+<!--My Resume  -->
+<section id="resume" class="py-20 relative">
+
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- HEADER -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-cyan-300">Career Timeline</h2>
+      <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
+        My learning and development journey across frontend engineering, cybersecurity, and systems building.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <!-- TIMELINE -->
+      <div class="space-y-6">
+
+        <!-- ITEM -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+          <div class="text-xs text-cyan-300">2025 – 2029</div>
+          <h3 class="text-white font-semibold mt-1">B.Sc. Computer Science</h3>
+          <p class="text-sm text-gray-400 mt-2">
+            Michael Okpara University of Agriculture, Umudike
+          </p>
+          <p class="text-xs text-gray-500 mt-2">
+            Focus: Software engineering, cybersecurity fundamentals, and system design principles.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+          <div class="text-xs text-cyan-300">2024</div>
+          <h3 class="text-white font-semibold mt-1">Frontend Development Certification</h3>
+          <p class="text-sm text-gray-400 mt-2">
+            LearnFactory Nigeria
+          </p>
+          <p class="text-xs text-gray-500 mt-2">
+            Built responsive UI systems, mastered Tailwind CSS and modern frontend workflows.
+          </p>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+          <div class="text-xs text-cyan-300">2023</div>
+          <h3 class="text-white font-semibold mt-1">WASSCE Completion</h3>
+          <p class="text-sm text-gray-400 mt-2">
+            Friedel Kropf's Educational Centre
+          </p>
+          <p class="text-xs text-gray-500 mt-2">
+            Transitioned fully into tech exploration and self-learning.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- SIDE PANEL -->
+      <div class="space-y-6">
+
+        <!-- EXPERIENCE -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+
+          <h3 class="text-cyan-300 font-semibold mb-4">Experience Focus</h3>
+
+          <div class="space-y-3 text-sm text-gray-300">
+            <p>⚡ Frontend Engineering (UI systems, responsive design)</p>
+            <p>🔐 Cybersecurity Labs (penetration testing practice)</p>
+            <p>🌐 Network Tools (scanner development & analysis)</p>
+            <p>🧠 Secure coding practices & OWASP awareness</p>
+          </div>
+
+        </div>
+
+        <!-- SKILLS SNAPSHOT -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+
+          <h3 class="text-cyan-300 font-semibold mb-4">Core Stack Snapshot</h3>
+
+          <div class="flex flex-wrap gap-2 text-xs text-gray-300">
+            <span class="px-3 py-1 bg-black/30 border border-white/10 rounded">HTML</span>
+            <span class="px-3 py-1 bg-black/30 border border-white/10 rounded">Tailwind</span>
+            <span class="px-3 py-1 bg-black/30 border border-white/10 rounded">JavaScript</span>
+            <span class="px-3 py-1 bg-black/30 border border-white/10 rounded">React</span>
+            <span class="px-3 py-1 bg-black/30 border border-white/10 rounded">Python (Learning)</span>
+            <span class="px-3 py-1 bg-black/30 border border-white/10 rounded">Linux</span>
+            <span class="px-3 py-1 bg-black/30 border border-white/10 rounded">Networking</span>
+          </div>
+
+        </div>
+
+        <!-- DOWNLOAD -->
+        <div class="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 rounded-2xl p-6 text-center">
+
+          <h3 class="text-cyan-300 font-semibold">Full Résumé</h3>
+          <p class="text-sm text-gray-400 mt-2">
+            Download a structured PDF version of my experience and skills.
+          </p>
+
+          <a href="resume.pdf"
+             class="inline-block mt-4 px-5 py-2 bg-cyan-400 text-black rounded-lg font-semibold hover:scale-105 transition">
+            Download CV
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<hr class="fancy-hr" />
+
+<!-- Contact Section -->
+<section id="contact" class="py-20relative bg-[#07080b]">
+
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- HEADER -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-cyan-300">Secure Contact Channel</h2>
+      <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
+        Send a message for collaborations, freelance work, or security / frontend projects.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <!-- CONTACT INFO PANEL -->
+      <div class="space-y-6">
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+          <h3 class="text-cyan-300 font-semibold">Direct Channels</h3>
+
+          <div class="mt-4 space-y-3 text-sm text-gray-300">
+            <p>📧 <span class="text-cyan-300">kayc3642@gmail.com</span></p>
+            <p>📱 +234 902 775 5821</p>
+            <p>🌍 Aba, Nigeria</p>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+          <h3 class="text-cyan-300 font-semibold">Response Protocol</h3>
+
+          <div class="mt-4 text-sm text-gray-300 space-y-2">
+            <p>⚡ Avg response time: 24 hours</p>
+            <p>🔐 Secure project discussions available</p>
+            <p>💼 Freelance / contract / collaboration</p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 rounded-2xl p-6">
+          <p class="text-sm text-gray-300 italic">
+            “Good systems are built through clear communication and strong execution.”
+          </p>
+        </div>
+
+      </div>
+
+      <!-- FORM PANEL -->
+      <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/30 transition">
+
+        <h3 class="text-cyan-300 font-semibold mb-6">Encrypted Message Form</h3>
+
+        <form class="space-y-4 " id="contactForm">
+
+          <div>
+            <label class="text-sm text-gray-300">Name</label>
+            <input type="text" id="name"
+                   placeholder="Your name"
+                   class="w-full mt-1 p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:border-cyan-400 outline-none">
+          </div>
+
+          <div>
+            <label class="text-sm text-gray-300">Email</label>
+            <input type="email" id="email"
+                   placeholder="you@example.com"
+                   class="w-full mt-1 p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:border-cyan-400 outline-none">
+          </div>
+
+          <div>
+            <label class="text-sm text-gray-300">Message</label>
+            <textarea rows="5" id="message"
+                      placeholder="Describe your project..."
+                      class="w-full mt-1 p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:border-cyan-400 outline-none"></textarea>
+          </div>
+
+          <!-- Honeypot field (hidden from humans, traps bots) -->
+          <input type="text" name="company" style="display:none" aria-hidden="true">
+
+          <button type="submit" id="submitBtn"
+                  class="w-full mt-2 px-6 py-3 bg-cyan-400 text-black font-semibold rounded-lg hover:scale-[1.02] transition">
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<hr class="fancy-hr" />
+
+<!-- Footer -->
+<footer class="bg-[#06070a] border-t border-white/5 py-10">
+
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+
+      <!-- LEFT -->
+      <div class="text-center md:text-left">
+        <h3 class="text-cyan-300 font-semibold text-lg">Shédräçk Labs</h3>
+        <p class="text-sm text-gray-400 mt-1">
+          Frontend Engineering • Cybersecurity • Systems Building
+        </p>
+      </div>
+
+      <!-- CENTER LINKS -->
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+        <a href="#home" class="hover:text-cyan-300 transition">Home</a>
+        <a href="#about" class="hover:text-cyan-300 transition">About</a>
+        <a href="#skills" class="hover:text-cyan-300 transition">Skills</a>
+        <a href="#projects" class="hover:text-cyan-300 transition">Projects</a>
+        <a href="#contact" class="hover:text-cyan-300 transition">Contact</a>
+      </div>
+
+      <!-- RIGHT SOCIALS -->
+      <div class="flex gap-4 text-xl">
+        <a href="https://github.com/Shedrack-hub" class="hover:text-cyan-400 transition">🐙</a>
+        <a href="https://www.linkedin.com/in/kelechi-basil-395369325" class="hover:text-cyan-400 transition">🔗</a>
+        <a href="mailto:kayc3642@gmail.com" class="hover:text-cyan-400 transition">✉️</a>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="mt-8 text-center text-xs text-gray-500 border-t border-white/5 pt-6">
+      © 2026 Shédräçk Labs. Built with precision, security mindset, and frontend engineering discipline.
+    </div>
+
+  </div>
+
+</footer>
+
+<div id="toast" class="hide">
+  <span id="toastMessage">Message</span>
+</div>
+
+</body>
+</html>
