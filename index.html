@@ -7,6 +7,7 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./output.css" />
   <script src="./script.js" defer></script>
   <meta name="description" content="Basil Kelechi Shedrack's portfolio — Frontend Development and Cybersecurity.">
 </head>
@@ -44,7 +45,7 @@
       </nav>
 
       <div class="md:hidden">
-        <button id="menu-btn" class="text-cyan-400 text-2xl" aria-label="Open menu" aria-expanded="false">☰</button>
+        <button id="menu-btn" class="text-cyan-400 text-2xl" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
       </div>
     </div>
   </header>
@@ -115,21 +116,25 @@
 
     </div>
 
-    <!-- Image Side -->
+    <!-- Interactive globe -->
     <div class="flex justify-center md:justify-end">
-
-      <div class="relative">
-
-        <!-- glow ring -->
-        <div class="absolute inset-0 bg-cyan-400/20 blur-3xl rounded-full"></div>
-
-        <div class="relative w-80 h-80 rounded-2xl overflow-hidden border border-cyan-400/20 shadow-2xl">
-          <img src="./images/profile.png"
-               class="w-full h-full object-cover" />
+      <div class="globe-stage">
+        <div class="globe-orbit globe-orbit-a" aria-hidden="true"></div>
+        <div class="globe-orbit globe-orbit-b" aria-hidden="true"></div>
+        <canvas id="globeCanvas" role="img" tabindex="0"
+                aria-label="Interactive 3D network globe. Drag to rotate or use the arrow keys."
+                aria-describedby="globeInstructions"></canvas>
+        <div class="globe-status" aria-hidden="true"><span></span> NETWORK ONLINE</div>
+        <div class="globe-coordinates" aria-hidden="true">06° 12′ N&nbsp; / &nbsp;07° 33′ E</div>
+        <div class="hero-hologram">
+          <img src="./images/profile.png" alt="Portrait of Basil Kelechi Shedrack" />
+          <div class="hologram-copy">
+            <strong>Basil Kelechi</strong>
+            <span>FRONTEND // SECURITY</span>
+          </div>
         </div>
-
+        <p id="globeInstructions" class="globe-instructions">DRAG TO ROTATE <span>↗</span></p>
       </div>
-
     </div>
 
   </div>
@@ -233,7 +238,7 @@
         </div>
 
         <!-- quote -->
-        <div class="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 rounded-2xl p-6">
+        <div class="hologram-panel bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 rounded-2xl p-6">
 
           <p class="text-sm text-gray-300 italic">
             “I don’t just build websites — I build systems that can survive real-world pressure.”
@@ -260,6 +265,14 @@
       <p class="text-gray-400 mt-3 max-w-2xl mx-auto">
         A breakdown of my current technical stack and evolving cybersecurity + development skillset.
       </p>
+    </div>
+
+    <div class="skill-orbit" aria-hidden="true">
+      <span class="skill-orbit-ring"></span>
+      <span class="skill-orbit-core">CORE<br>STACK</span>
+      <span class="skill-orbit-chip orbit-chip-a">JS</span>
+      <span class="skill-orbit-chip orbit-chip-b">UI</span>
+      <span class="skill-orbit-chip orbit-chip-c">SEC</span>
     </div>
 
     <!-- Grid -->
@@ -414,8 +427,8 @@
       <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-400/40 transition">
 
         <div class="overflow-hidden">
-          <img src="./images/project1.png"
-               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500">
+          <img src="./images/project1.png" alt="Preview of the portfolio system"
+               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500" loading="lazy">
         </div>
 
         <div class="p-5">
@@ -442,8 +455,8 @@
       <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-400/40 transition">
 
         <div class="overflow-hidden">
-          <img src="./images/project2.png"
-               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500">
+          <img src="./images/project2.png" alt="Preview of the Sovchi Technology Platform"
+               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500" loading="lazy">
         </div>
 
         <div class="p-5">
@@ -470,8 +483,8 @@
       <div class="group bg-white/5 border border-cyan-400/20 rounded-2xl overflow-hidden hover:border-cyan-400/50 transition">
 
         <div class="overflow-hidden relative">
-          <img src="./images/project3.png"
-               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500">
+          <img src="./images/project3.png" alt="Preview of the network scanner project"
+               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500" loading="lazy">
 
           
         </div>
@@ -500,8 +513,8 @@
       <div class="group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-cyan-400/40 transition">
 
         <div class="overflow-hidden">
-          <img src="./images/project4.png"
-               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500">
+          <img src="./images/project4.png" alt="Preview of the Password Guardian project"
+               class="w-full h-44 object-cover group-hover:scale-105 transition duration-500" loading="lazy">
         </div>
 
         <div class="p-5">
@@ -539,6 +552,7 @@
 
   <a href="https://github.com/Shedrack-hub"
      target="_blank"
+     rel="noopener noreferrer"
      class="inline-block mt-5 px-6 py-3 bg-cyan-400 text-black rounded-lg font-semibold hover:scale-105 transition">
     View GitHub Repository →
   </a>
@@ -662,7 +676,7 @@
 <hr class="fancy-hr" />
 
 <!-- Contact Section -->
-<section id="contact" class="py-20relative bg-[#07080b]">
+<section id="contact" class="py-20 relative bg-[#07080b]">
 
   <div class="max-w-6xl mx-auto px-6 lg:px-8">
 
@@ -683,8 +697,8 @@
           <h3 class="text-cyan-300 font-semibold">Direct Channels</h3>
 
           <div class="mt-4 space-y-3 text-sm text-gray-300">
-            <p>📧 <span class="text-cyan-300">kayc3642@gmail.com</span></p>
-            <p>📱 +234 902 775 5821</p>
+            <p>📧 <a class="text-cyan-300 hover:text-white transition" href="mailto:kayc3642@gmail.com">kayc3642@gmail.com</a></p>
+            <p>📱 <a class="text-cyan-300 hover:text-white transition" href="tel:+2349027755821">+234 902 775 5821</a></p>
             <p>🌍 Aba, Nigeria</p>
           </div>
         </div>
@@ -699,7 +713,7 @@
           </div>
         </div>
 
-        <div class="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 rounded-2xl p-6">
+        <div class="contact-hologram bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 rounded-2xl p-6">
           <p class="text-sm text-gray-300 italic">
             “Good systems are built through clear communication and strong execution.”
           </p>
@@ -715,28 +729,28 @@
         <form class="space-y-4 " id="contactForm">
 
           <div>
-            <label class="text-sm text-gray-300">Name</label>
-            <input type="text" id="name"
+            <label for="name" class="text-sm text-gray-300">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required
                    placeholder="Your name"
                    class="w-full mt-1 p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:border-cyan-400 outline-none">
           </div>
 
           <div>
-            <label class="text-sm text-gray-300">Email</label>
-            <input type="email" id="email"
+            <label for="email" class="text-sm text-gray-300">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required
                    placeholder="you@example.com"
                    class="w-full mt-1 p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:border-cyan-400 outline-none">
           </div>
 
           <div>
-            <label class="text-sm text-gray-300">Message</label>
-            <textarea rows="5" id="message"
+            <label for="message" class="text-sm text-gray-300">Message</label>
+            <textarea rows="5" id="message" name="message" required
                       placeholder="Describe your project..."
                       class="w-full mt-1 p-3 rounded-lg bg-black/30 border border-white/10 text-white focus:border-cyan-400 outline-none"></textarea>
           </div>
 
           <!-- Honeypot field (hidden from humans, traps bots) -->
-          <input type="text" name="company" style="display:none" aria-hidden="true">
+          <input type="text" name="company" style="display:none" aria-hidden="true" tabindex="-1" autocomplete="off">
 
           <button type="submit" id="submitBtn"
                   class="w-full mt-2 px-6 py-3 bg-cyan-400 text-black font-semibold rounded-lg hover:scale-[1.02] transition">
@@ -780,9 +794,9 @@
 
       <!-- RIGHT SOCIALS -->
       <div class="flex gap-4 text-xl">
-        <a href="https://github.com/Shedrack-hub" class="hover:text-cyan-400 transition">🐙</a>
-        <a href="https://www.linkedin.com/in/kelechi-basil-395369325" class="hover:text-cyan-400 transition">🔗</a>
-        <a href="mailto:kayc3642@gmail.com" class="hover:text-cyan-400 transition">✉️</a>
+              <a href="https://github.com/Shedrack-hub" aria-label="GitHub" rel="noopener noreferrer" class="hover:text-cyan-400 transition">🐙</a>
+              <a href="https://www.linkedin.com/in/kelechi-basil-395369325" aria-label="LinkedIn" rel="noopener noreferrer" class="hover:text-cyan-400 transition">🔗</a>
+              <a href="mailto:kayc3642@gmail.com" aria-label="Email" class="hover:text-cyan-400 transition">✉️</a>
       </div>
 
     </div>
@@ -797,7 +811,7 @@
 </footer>
 
 <div id="toast" class="hide">
-  <span id="toastMessage">Message</span>
+  <span id="toastMessage" role="status" aria-live="polite" aria-atomic="true">Message</span>
 </div>
 
 </body>
