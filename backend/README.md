@@ -2,6 +2,8 @@
 
 Node.js and Express API for the portfolio contact form.
 
+The static frontend currently sends contact submissions through EmailJS. This API is an optional alternative and is not required for the frontend form.
+
 ## Gmail setup
 
 1. Enable 2-Step Verification on the Google account that will send contact messages.
@@ -26,16 +28,16 @@ Create or update a Render **Web Service** for this repository:
    - `SMTP_SECURE`: `true`
    - `SMTP_USER`: the Gmail address used for sending
    - `SMTP_PASS`: the Gmail App Password
-5. Deploy the service. The frontend currently sends production submissions to `https://portfolio-backend-hd55.onrender.com/api/contact`; use that Render service URL, or update `API_URL` in the frontend if Render assigns a different URL.
+5. Deploy the service. The current frontend does not call this API; update its contact-form integration if you want to switch from EmailJS to this backend.
 6. Visit `https://your-render-service.onrender.com/api/health`. A healthy service responds with `{"success":true,"status":"ok"}`.
 
 If the frontend uses both `www` and non-`www` domains, list both origins in `CLIENT_ORIGIN`, separated by commas.
 
-## Run locally
+## Run the backend locally
 
 1. Copy `.env.example` to `.env` and fill in the Gmail settings above. Set `CLIENT_ORIGIN` to the local frontend origin.
 2. From this directory, run `npm install` and then `npm start`.
-3. Serve the frontend at `http://localhost:5500` or `http://127.0.0.1:5500` so its contact form targets the local API.
+3. If testing this API from a frontend, serve it at `http://localhost:5500` or `http://127.0.0.1:5500` so the origin is allowed. The current EmailJS contact form does not require this backend.
 
 The API listens on port `3001` by default.
 

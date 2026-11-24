@@ -3,12 +3,9 @@
 /* =========================
    CONFIG
 ========================= */
-const isLocalFrontend =
-  window.location.hostname === "localhost" ||
-  window.location.hostname === "127.0.0.1";
-const API_URL = isLocalFrontend
-  ? "http://localhost:3001/api/contact"
-  : "https://portfolio-backend-hd55.onrender.com/api/contact";
+const EMAILJS_SERVICE_ID = "service_ikdpkmr";
+const EMAILJS_TEMPLATE_ID = "template_ayrojd7";
+const EMAILJS_PUBLIC_KEY = "oGV5x_w9qS6FrLjZT";
 
 /* =========================
    MOBILE MENU
@@ -659,33 +656,35 @@ if (contactForm && submitBtn) {
       return;
     }
 
+    if (contactForm.elements.company.value) {
+      showToast("Unable to send message.", "error");
+      return;
+    }
+
+    if (!window.emailjs) {
+      showToast("Contact service unavailable. Please email directly.", "error");
+      return;
+    }
+
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
 
     try {
-      const res = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, email, message })
-      });
-
-      const data = await res.json();
-
-      if (data.success) {
-        showToast("Message sent successfully 🚀", "success");
-        contactForm.reset();
-      } else {
-        showToast(data.message || "Failed to send message ❌", "error");
-      }
+      await window.emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        contactForm,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+      showToast("Message sent successfully 🚀", "success");
+      contactForm.reset();
     } catch (err) {
-      console.log(err);
-      showToast("Server error ⚠️", "error");
+      console.error("EmailJS contact submission failed:", err);
+      showToast("Could not send message. Please try again or email directly.", "error");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
     }
-
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Send Message";
   });
 }
 
